@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  web:
+    image: jchen8tw/flaskweb
+    restart: always
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    working_dir: /app
+    volumes:
+      - ../backend:/app:ro
+    ports:
+      - '8081:8081'
+    command: "python server.py"
